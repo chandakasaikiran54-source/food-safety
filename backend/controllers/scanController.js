@@ -46,8 +46,11 @@ exports.analyzeFood = async (req, res) => {
             scanData.category = data.category || 'Raw / Not Cooked Food';
             scanData.confidence = data.confidence || 0.0;
             scanData.score = data.score || 0;
-            scanData.status = data.status || 'High Concern';
-            scanData.visualIndicators = data.visualIndicators || [];
+            scanData.freshness = data.freshness || 'Unknown';
+            scanData.visibleMold = data.visibleMold || 'Unknown';
+            scanData.visibleDiscoloration = data.visibleDiscoloration || 'Unknown';
+            scanData.visibleContamination = data.visibleContamination || 'Unknown';
+            scanData.visualHygieneRisk = data.visualHygieneRisk || 'HIGH RISK';
             scanData.recommendations = data.recommendations || [];
             scanData.limitations = data.limitations || 'Invisible or microscopic hazards — including bacteria, viruses, pesticide residues, chemical contaminants, veterinary drug residues, and toxins — cannot be confirmed through ordinary image analysis. A food image that appears normal does not prove that the food is free from contamination.';
         }

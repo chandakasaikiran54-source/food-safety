@@ -29,12 +29,40 @@ const scanSchema = new mongoose.Schema({
     score: {
         type: Number
     },
-    status: {
+    freshness: {
         type: String
     },
-    visualIndicators: {
-        type: [String],
-        default: []
+    visibleMold: {
+        type: String
+    },
+    visibleDiscoloration: {
+        type: String
+    },
+    visibleContamination: {
+        type: String
+    },
+    visualHygieneRisk: {
+        type: String
+    },
+    analysisType: {
+        type: String,
+        default: 'RGB'
+    },
+    reconstructedSpectralReference: {
+        type: String
+    },
+    measuredSpectralReference: {
+        type: String
+    },
+    sensorResults: {
+        type: mongoose.Schema.Types.Mixed
+    },
+    multimodalResult: {
+        type: String
+    },
+    modelVersion: {
+        type: String,
+        default: 'MobileNetV3-Food-v1'
     },
     recommendations: {
         type: [String],

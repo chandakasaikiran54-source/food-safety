@@ -16,6 +16,9 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 // Routes
 app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/scans', require('./routes/scanRoutes'));
+app.use('/api/restaurants', require('./routes/restaurantRoutes'));
+app.use('/api/officers', require('./routes/officerRoutes'));
+app.use('/api/complaints', require('./routes/complaintRoutes'));
 
 // Root Route
 app.get('/', (req, res) => {

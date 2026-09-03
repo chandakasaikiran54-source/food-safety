@@ -9,6 +9,11 @@ import Dashboard from './pages/Dashboard';
 import ScanFood from './pages/ScanFood';
 import Result from './pages/Result';
 import History from './pages/History';
+import RestaurantSearch from './pages/RestaurantSearch';
+import RestaurantHistory from './pages/RestaurantHistory';
+import InspectionForm from './pages/InspectionForm';
+import OfficerVerification from './pages/OfficerVerification';
+import ComplaintForm from './pages/ComplaintForm';
 
 const ProtectedRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -30,6 +35,11 @@ const AppContent = () => {
           <Route path="/scan" element={<ProtectedRoute><ScanFood /></ProtectedRoute>} />
           <Route path="/result/:id" element={<ProtectedRoute><Result /></ProtectedRoute>} />
           <Route path="/history" element={<ProtectedRoute><History /></ProtectedRoute>} />
+          <Route path="/restaurants/search" element={<ProtectedRoute><RestaurantSearch /></ProtectedRoute>} />
+          <Route path="/restaurants/history" element={<ProtectedRoute><RestaurantHistory /></ProtectedRoute>} />
+          <Route path="/inspect" element={<ProtectedRoute><InspectionForm /></ProtectedRoute>} />
+          <Route path="/officer-verification" element={<ProtectedRoute><OfficerVerification /></ProtectedRoute>} />
+          <Route path="/complaints/new" element={<ProtectedRoute><ComplaintForm /></ProtectedRoute>} />
         </Routes>
       </div>
     </>

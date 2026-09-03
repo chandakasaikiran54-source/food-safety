@@ -111,7 +111,7 @@ const History = () => {
                   {scan.isFood !== false ? (
                     <>
                       <span style={{ fontSize: '1.2rem', fontWeight: 'bold', color: getScoreColor(scan.score) }}>{scan.score}/100</span>
-                      <span style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>{scan.status}</span>
+                      <span style={{ fontSize: '0.75rem', color: '#cbd5e1' }}>{scan.visualHygieneRisk || 'N/A'}</span>
                     </>
                   ) : (
                     <span style={{ fontSize: '1rem', color: 'var(--error-color)', fontWeight: 'bold' }}>N/A</span>

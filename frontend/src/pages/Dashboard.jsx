@@ -35,15 +35,41 @@ const Dashboard = () => {
 
   return (
     <div className="animate-fade-in" style={{ padding: '40px 5%' }}>
-      <h2 style={{ fontSize: '2rem', marginBottom: '24px' }}>Welcome, {user?.name}</h2>
-
-      <div className="glass-card mb-8 text-center" style={{ padding: '40px' }}>
-        <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Scan Your Food</h3>
-        <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>Get an AI visual food safety assessment instantly.</p>
-        <Link to="/scan" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
-          <FiCamera style={{ marginRight: '8px' }} /> Scan Food
-        </Link>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
+        <h2 style={{ fontSize: '2rem' }}>Welcome, {user?.name}</h2>
+        {user?.role === 'user' && (
+          <Link to="/officer-verification" style={{ color: 'var(--primary-color)', textDecoration: 'none', borderBottom: '1px solid var(--primary-color)' }}>
+            Are you a Food Safety Officer? Verify Identity
+          </Link>
+        )}
       </div>
+
+      {user?.role === 'officer' ? (
+        <div className="glass-card mb-8 text-center" style={{ padding: '40px' }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Officer Dashboard</h3>
+          <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>Submit a new restaurant inspection report.</p>
+          <Link to="/inspect" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
+            Inspect Restaurant
+          </Link>
+        </div>
+      ) : (
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '32px' }}>
+          <div className="glass-card text-center" style={{ padding: '40px' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Capture Picture</h3>
+            <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>Get an AI visual food safety assessment instantly.</p>
+            <Link to="/scan" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
+              <FiCamera style={{ marginRight: '8px' }} /> Scan Food
+            </Link>
+          </div>
+          <div className="glass-card text-center" style={{ padding: '40px' }}>
+            <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Check Restaurant</h3>
+            <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>View public inspection records for local restaurants.</p>
+            <Link to="/restaurants/search" className="btn btn-secondary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
+              Check Restaurant
+            </Link>
+          </div>
+        </div>
+      )}
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', marginBottom: '32px' }}>
         <div className="glass-card text-center">

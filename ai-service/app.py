@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from PIL import Image
+import cv2
+import numpy as np
 
 app = Flask(__name__)
 CORS(app)
@@ -16,6 +18,34 @@ def preprocess_image(filepath):
     except Exception as e:
         print(f"Error preprocessing image: {e}")
         return None
+
+def assess_image_quality(filepath):
+    try:
+        image = cv2.imread(filepath)
+        if image is None:
+            return False, "Unable to read image."
+            
+        height, width = image.shape[:2]
+        if width < 200 or height < 200:
+            return False, "Image resolution is too low. Please upload a clearer image."
+            
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        fm = cv2.Laplacian(gray, cv2.CV_64F).var()
+        if fm < 50:
+            return False, "Image quality is insufficient for reliable analysis (too blurry). Please capture a clearer image."
+            
+        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        v = hsv[:,:,2]
+        mean_v = np.mean(v)
+        if mean_v < 40:
+            return False, "Image quality is insufficient for reliable analysis (underexposed/dark). Please capture a clearer image."
+        if mean_v > 230:
+            return False, "Image quality is insufficient for reliable analysis (overexposed/bright). Please capture a clearer image."
+            
+        return True, "Good"
+    except Exception as e:
+        print(f"Error checking image quality: {e}")
+        return False, "Error assessing image quality."
 
 def detect_is_food(img, filename):
     # DEMO/MOCK: Distinguish food vs non-food without a real ML model.
@@ -68,31 +98,45 @@ def classify_food_category(img):
 
 def assess_visual_safety(category, img):
     # DEMO/MOCK: Deterministic scoring based on category
+    # In a real model, these would come from multiple specific classifiers
+    
+    # Defaults
+    freshness = "Likely Fresh"
+    visibleMold = "Not Detected"
+    visibleDiscoloration = "Low"
+    visibleContamination = "Not Detected"
+    visualHygieneRisk = "LOW RISK"
+    score = 85
+    
     if category == 'Raw / Not Cooked Food':
         score = 85
+        freshness = "Likely Fresh"
+        visualHygieneRisk = "LOW RISK"
     elif category == 'Cooked Food':
         score = 75
-    else:
+        freshness = "Freshly Cooked"
+        visibleDiscoloration = "Medium"
+        visualHygieneRisk = "MEDIUM RISK"
+    elif category == 'Fried Food':
         score = 65
+        freshness = "Requires Attention"
+        visibleDiscoloration = "High"
+        visualHygieneRisk = "MEDIUM RISK"
+    else:
+        score = 50
+        freshness = "Unknown"
+        visibleMold = "Possible"
+        visualHygieneRisk = "HIGH RISK"
         
+    recommendations = []
     if score >= 80:
-        status = 'Excellent'
-        indicators = ['Food type recognized', 'No visible concern was identified in the image', 'No obvious visible foreign material']
         recommendations = ['Maintain current storage practices', 'This visual assessment cannot rule out invisible or microscopic hazards']
     elif score >= 60:
-        status = 'Good / Needs Attention'
-        indicators = ['Food type recognized', 'Possible visual discoloration', 'Minor visible handling indicators']
         recommendations = ['Consider checking preparation conditions', 'Monitor storage duration', 'This visual assessment cannot rule out invisible or microscopic hazards']
-    elif score >= 40:
-        status = 'Poor'
-        indicators = ['Visible concern', 'Food appears exposed or poorly handled', 'Unusual visual appearance detected']
-        recommendations = ['Check cooking conditions', 'Ensure proper food handling', 'May require further inspection']
     else:
-        status = 'High Concern'
-        indicators = ['Excessive charring/browning or visible spoilage-like appearance', 'Visual indicator detected that requires attention']
-        recommendations = ['May require further inspection', 'Check for spoilage', 'Laboratory testing may be required to confirm safety']
+        recommendations = ['Check cooking conditions', 'Ensure proper food handling', 'May require further inspection']
         
-    return score, status, indicators, recommendations
+    return score, freshness, visibleMold, visibleDiscoloration, visibleContamination, visualHygieneRisk, recommendations
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
@@ -102,6 +146,11 @@ def analyze():
     
     if not filename or not filepath:
         return jsonify({"success": False, "message": "No filename or filepath provided"}), 400
+        
+    # 0. Image Quality Check
+    is_good, q_msg = assess_image_quality(filepath)
+    if not is_good:
+        return jsonify({"success": False, "message": q_msg}), 400
         
     # 1. Preprocess
     img = preprocess_image(filepath)
@@ -128,7 +177,7 @@ def analyze():
     category, detected_food, confidence = classify_food_category(img)
     
     # 4. Assess Safety
-    score, status, indicators, recommendations = assess_visual_safety(category, img)
+    score, freshness, mold, discoloration, contamination, hygiene_risk, recommendations = assess_visual_safety(category, img)
     
     return jsonify({
         "success": True,
@@ -138,8 +187,11 @@ def analyze():
             "category": category,
             "confidence": confidence,
             "score": score,
-            "status": status,
-            "visualIndicators": indicators,
+            "freshness": freshness,
+            "visibleMold": mold,
+            "visibleDiscoloration": discoloration,
+            "visibleContamination": contamination,
+            "visualHygieneRisk": hygiene_risk,
             "recommendations": recommendations,
             "limitations": "Invisible or microscopic hazards — including bacteria, viruses, pesticide residues, chemical contaminants, veterinary drug residues, and toxins — cannot be confirmed through ordinary image analysis. A food image that appears normal does not prove that the food is free from contamination."
         }

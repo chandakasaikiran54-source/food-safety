@@ -95,18 +95,29 @@ const Result = () => {
             
             <div className="glass-card">
               <h3 style={{ marginBottom: '16px', borderBottom: '1px solid var(--glass-border)', paddingBottom: '8px' }}>
-                Visual Assessment
+                Visual Assessment Details
               </h3>
               <ul style={{ listStyle: 'none', padding: 0 }}>
-                {result.visualIndicators.map((indicator, idx) => {
-                  const isConcern = indicator.toLowerCase().includes('concern') || indicator.toLowerCase().includes('attention') || indicator.toLowerCase().includes('excessive');
-                  return (
-                    <li key={idx} style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '12px', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px' }}>
-                      {isConcern ? <FiAlertTriangle color="var(--warning-color)" size={20} /> : <FiCheckCircle color="var(--score-excellent)" size={20} />}
-                      <span>{indicator}</span>
-                    </li>
-                  );
-                })}
+                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', marginBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Freshness</span>
+                  <span style={{ fontWeight: 'bold' }}>{result.freshness || 'N/A'}</span>
+                </li>
+                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', marginBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Visible Mold</span>
+                  <span style={{ fontWeight: 'bold' }}>{result.visibleMold || 'N/A'}</span>
+                </li>
+                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', marginBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Visible Discoloration</span>
+                  <span style={{ fontWeight: 'bold' }}>{result.visibleDiscoloration || 'N/A'}</span>
+                </li>
+                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', marginBottom: '8px' }}>
+                  <span style={{ color: '#cbd5e1' }}>Visible Contamination</span>
+                  <span style={{ fontWeight: 'bold' }}>{result.visibleContamination || 'N/A'}</span>
+                </li>
+                <li style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', background: 'rgba(0,0,0,0.2)', borderRadius: '8px', marginBottom: '8px', borderLeft: `4px solid ${result.visualHygieneRisk?.includes('LOW') ? 'var(--score-excellent)' : result.visualHygieneRisk?.includes('MEDIUM') ? 'var(--score-good)' : 'var(--score-high-concern)'}` }}>
+                  <span style={{ color: '#cbd5e1' }}>Visual Hygiene Risk</span>
+                  <span style={{ fontWeight: 'bold' }}>{result.visualHygieneRisk || 'N/A'}</span>
+                </li>
               </ul>
             </div>
 
