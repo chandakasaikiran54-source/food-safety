@@ -1,10 +1,11 @@
 const User = require('../models/User');
 const VerifiedOfficer = require('../models/VerifiedOfficer');
+const Inspection = require('../models/Inspection');
 
 // @desc    Verify and upgrade user to officer
 // @route   POST /api/officers/verify
 // @access  Private
-exports.verifyOfficer = async (req, res) => {
+exports.verifyOfficer = async (req, res, next) => {
     try {
         const { officerId, state, district } = req.body;
 
@@ -30,11 +31,12 @@ exports.verifyOfficer = async (req, res) => {
         // Upgrade the logged-in user to Officer
         const user = await User.findById(req.user._id);
         user.role = 'officer';
+        user.officerId = officialRecord.officerId;
         await user.save();
 
         res.json({
             success: true,
-            message: '✓ OFFICIALLY VERIFIED FOOD SAFETY OFFICER',
+            message: '✓ Verified against latest available official government database (Demo)',
             data: {
                 role: user.role,
                 officerData: officialRecord
@@ -43,6 +45,50 @@ exports.verifyOfficer = async (req, res) => {
 
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: 'Server Error during official verification.' });
+        next(error);
+    }
+};
+
+// @desc    Get dashboard stats for officer
+// @route   GET /api/officers/dashboard-stats
+// @access  Private (Officer)
+exports.getDashboardStats = async (req, res, next) => {
+    try {
+        if (req.user.role !== 'officer' && req.user.role !== 'admin') {
+            return res.status(403).json({ success: false, message: 'Access denied.' });
+        }
+
+        const inspections = await Inspection.find({ officerId: req.user._id });
+
+        const now = new Date();
+        now.setHours(0, 0, 0, 0);
+
+        let upcoming = 0;
+        let dueToday = 0;
+        let overdue = 0;
+
+        inspections.forEach(insp => {
+            if (insp.nextInspectionDate) {
+                const dueDate = new Date(insp.nextInspectionDate);
+                dueDate.setHours(0, 0, 0, 0);
+
+                if (dueDate > now) upcoming++;
+                else if (dueDate.getTime() === now.getTime()) dueToday++;
+                else overdue++;
+            }
+        });
+
+        res.json({
+            success: true,
+            data: {
+                totalInspections: inspections.length,
+                upcoming,
+                dueToday,
+                overdue,
+                recentInspections: inspections.sort((a, b) => b.createdAt - a.createdAt).slice(0, 5)
+            }
+        });
+    } catch (error) {
+        next(error);
     }
 };

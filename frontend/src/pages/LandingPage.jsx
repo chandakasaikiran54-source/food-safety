@@ -12,13 +12,17 @@ const LandingPage = () => {
         <p style={{ fontSize: '1.2rem', color: '#cbd5e1', maxWidth: '600px', margin: '0 auto 32px' }}>
           AI-powered visual food safety assessment for everyday food awareness.
         </p>
-        <div className="flex justify-center gap-4">
-          <Link to="/scan" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.1rem' }}>
-            <FiCamera style={{ marginRight: '8px' }} /> Scan Food
-          </Link>
-          <Link to="/login" className="btn btn-secondary" style={{ padding: '16px 32px', fontSize: '1.1rem' }}>
-            Login
-          </Link>
+        
+        <div style={{ padding: '24px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px', display: 'inline-block', marginBottom: '24px' }}>
+            <h3 style={{ marginBottom: '16px', color: '#cbd5e1' }}>Select Access Level</h3>
+            <div className="flex justify-center gap-4 flex-wrap">
+              <Link to="/login" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <FiCamera /> User Mode
+              </Link>
+              <Link to="/officer-login" className="btn btn-secondary" style={{ padding: '16px 32px', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px', borderColor: 'var(--accent-color)' }}>
+                <FiShield /> Food Inspector Mode
+              </Link>
+            </div>
         </div>
       </header>
 

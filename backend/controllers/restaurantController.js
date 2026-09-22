@@ -4,7 +4,7 @@ const Inspection = require('../models/Inspection');
 // @desc    Search restaurant by name and location
 // @route   GET /api/restaurants/search
 // @access  Private
-exports.searchRestaurant = async (req, res) => {
+exports.searchRestaurant = async (req, res, next) => {
     try {
         const { name, location } = req.query;
         if (!name || !location) {
@@ -24,14 +24,14 @@ exports.searchRestaurant = async (req, res) => {
         res.json({ success: true, data: restaurant });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: 'Server Error' });
+        next(error);
     }
 };
 
 // @desc    Get restaurant by ID with inspections
 // @route   GET /api/restaurants/:id
 // @access  Private
-exports.getRestaurantById = async (req, res) => {
+exports.getRestaurantById = async (req, res, next) => {
     try {
         const restaurant = await Restaurant.findById(req.params.id);
         if (!restaurant) {
@@ -45,14 +45,14 @@ exports.getRestaurantById = async (req, res) => {
         res.json({ success: true, data: { restaurant, inspections } });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: 'Server Error' });
+        next(error);
     }
 };
 
 // @desc    Submit an inspection (Officer only)
 // @route   POST /api/restaurants/inspect
 // @access  Private (Officer)
-exports.submitInspection = async (req, res) => {
+exports.submitInspection = async (req, res, next) => {
     try {
         // Ensure user is an officer
         if (req.user.role !== 'officer') {
@@ -69,10 +69,14 @@ exports.submitInspection = async (req, res) => {
             overallRating,
             remarks,
             date,
-            nextInspectionDate
+            nextInspectionDate,
+            foodStorageCondition,
+            wasteManagement,
+            pestControl,
+            staffHygiene
         } = req.body;
 
-        if (!restaurantName || !restaurantLocation || !foodStatus || !hygieneRating || !rawMaterialStatus || !kitchenCleanliness || !overallRating || !date) {
+        if (!restaurantName || !restaurantLocation || !foodStatus || !hygieneRating || !rawMaterialStatus || !kitchenCleanliness || !overallRating || !date || !foodStorageCondition || !wasteManagement || !pestControl || !staffHygiene) {
             return res.status(400).json({ success: false, message: 'Please provide all required fields' });
         }
 
@@ -87,11 +91,17 @@ exports.submitInspection = async (req, res) => {
                 name: restaurantName,
                 location: restaurantLocation,
                 latestInspectionStatus: foodStatus,
-                latestInspectionDate: date
+                latestInspectionDate: date,
+                latestHygieneRating: hygieneRating,
+                latestOverallRating: overallRating,
+                nextInspectionDueDate: nextInspectionDate
             });
         } else {
             restaurant.latestInspectionStatus = foodStatus;
             restaurant.latestInspectionDate = date;
+            restaurant.latestHygieneRating = hygieneRating;
+            restaurant.latestOverallRating = overallRating;
+            restaurant.nextInspectionDueDate = nextInspectionDate;
             await restaurant.save();
         }
 
@@ -105,12 +115,16 @@ exports.submitInspection = async (req, res) => {
             kitchenCleanliness,
             overallRating,
             remarks,
-            nextInspectionDate
+            nextInspectionDate,
+            foodStorageCondition,
+            wasteManagement,
+            pestControl,
+            staffHygiene
         });
 
         res.status(201).json({ success: true, data: inspection });
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: 'Server Error' });
+        next(error);
     }
 };

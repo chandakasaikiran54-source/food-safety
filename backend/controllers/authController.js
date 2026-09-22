@@ -7,16 +7,18 @@ const generateToken = (id) => {
     });
 };
 
-exports.registerUser = async (req, res) => {
+exports.registerUser = async (req, res, next) => {
     const { name, email, password } = req.body;
     try {
         if (!name || !email || !password) {
-            return res.status(400).json({ success: false, message: 'Please provide all fields' });
+            res.status(400);
+            throw new Error('Please provide all fields');
         }
 
         const userExists = await User.findOne({ email });
         if (userExists) {
-            return res.status(400).json({ success: false, message: 'User already exists' });
+            res.status(400);
+            throw new Error('Email already exists');
         }
 
         const user = await User.create({
@@ -37,21 +39,30 @@ exports.registerUser = async (req, res) => {
                 }
             });
         } else {
-            res.status(400).json({ success: false, message: 'Invalid user data' });
+            res.status(400);
+            throw new Error('Invalid user data');
         }
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Server Error' });
+        next(error);
     }
 };
 
-exports.loginUser = async (req, res) => {
+const mongoose = require('mongoose');
+
+exports.loginUser = async (req, res, next) => {
     const { email, password } = req.body;
     try {
         if (!email || !password) {
-            return res.status(400).json({ success: false, message: 'Please provide email and password' });
+            res.status(400);
+            throw new Error('Please provide credentials');
         }
 
-        const user = await User.findOne({ email });
+        let user;
+        if (email.includes('@')) {
+            user = await User.findOne({ email: email.toLowerCase() });
+        } else {
+            user = await User.findOne({ officerId: email });
+        }
 
         if (user && (await user.matchPassword(password))) {
             res.json({
@@ -61,26 +72,29 @@ exports.loginUser = async (req, res) => {
                     name: user.name,
                     email: user.email,
                     role: user.role,
+                    officerId: user.officerId,
                     token: generateToken(user._id)
                 }
             });
         } else {
-            res.status(401).json({ success: false, message: 'Invalid email or password' });
+            res.status(401);
+            throw new Error('Invalid credentials');
         }
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Server Error' });
+        next(error);
     }
 };
 
-exports.getProfile = async (req, res) => {
+exports.getProfile = async (req, res, next) => {
     try {
         const user = await User.findById(req.user._id).select('-password');
         if (user) {
             res.json({ success: true, data: user });
         } else {
-            res.status(404).json({ success: false, message: 'User not found' });
+            res.status(404);
+            throw new Error('User not found');
         }
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Server Error' });
+        next(error);
     }
 };

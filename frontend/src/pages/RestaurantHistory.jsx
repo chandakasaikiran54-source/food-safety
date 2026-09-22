@@ -21,6 +21,9 @@ const RestaurantHistory = () => {
           const res = await api.get(`/restaurants/${searchRes.data.data._id}`);
           setRestaurant(res.data.data.restaurant);
           setInspections(res.data.data.inspections);
+          if (!res.data.data.inspections || res.data.data.inspections.length === 0) {
+            setNotVisited(true);
+          }
         }
       } catch (err) {
         if (err.response?.status === 404) {
@@ -113,6 +116,22 @@ const RestaurantHistory = () => {
                     <div>
                       <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Kitchen Cleanliness</p>
                       <p style={{ fontWeight: 'bold' }}>{insp.kitchenCleanliness}</p>
+                    </div>
+                    <div>
+                      <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Food Storage</p>
+                      <p style={{ fontWeight: 'bold' }}>{insp.foodStorageCondition}</p>
+                    </div>
+                    <div>
+                      <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Waste Management</p>
+                      <p style={{ fontWeight: 'bold' }}>{insp.wasteManagement}</p>
+                    </div>
+                    <div>
+                      <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Pest Control</p>
+                      <p style={{ fontWeight: 'bold' }}>{insp.pestControl}</p>
+                    </div>
+                    <div>
+                      <p style={{ color: '#94a3b8', fontSize: '0.9rem' }}>Staff Hygiene</p>
+                      <p style={{ fontWeight: 'bold' }}>{insp.staffHygiene}</p>
                     </div>
                     <div style={{ gridColumn: '1 / -1', background: 'rgba(0,0,0,0.2)', padding: '12px', borderRadius: '8px', display: 'flex', justifyContent: 'space-between' }}>
                       <span style={{ color: '#cbd5e1' }}>Overall Rating</span>

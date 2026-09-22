@@ -6,3 +6,35 @@ __pycache__/
 uploads/
 dist/
 .DS_Store
+# Datasets
+ai-service/data/
+
+# Trained ML models
+ai-service/models/
+
+# Training results
+ai-service/results/
+
+# Test images
+ai-service/test_images/
+ai-service/test_food.jpg
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment / secrets
+.env
+.env.*
+
+# Node dependencies
+node_modules/
+
+# Python virtual environments
+venv/
+.venv/
+
+# Large model files
+*.pth
+*.pt
+*.onnx

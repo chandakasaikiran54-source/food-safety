@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const { analyzeFood, getScans, getScanById, deleteScan, submitCustomerAssessment } = require('../controllers/scanController');
+const { analyzeRawFood, getRawFoodAssessments, getRawFoodAssessmentById, deleteRawFoodAssessment, submitCustomerAssessment } = require('../controllers/rawFoodController');
 const { protect } = require('../middleware/authMiddleware');
 
 const storage = multer.diskStorage({
@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, `${Date.now()}-${file.originalname}`);
+        cb(null, `raw-${Date.now()}-${file.originalname}`);
     }
 });
 
@@ -44,9 +44,9 @@ const uploadMiddleware = (req, res, next) => {
     });
 };
 
-router.post('/analyze', protect, uploadMiddleware, analyzeFood);
-router.route('/').get(protect, getScans);
-router.route('/:id').get(protect, getScanById).delete(protect, deleteScan);
+router.post('/analyze', protect, uploadMiddleware, analyzeRawFood);
+router.route('/').get(protect, getRawFoodAssessments);
+router.route('/:id').get(protect, getRawFoodAssessmentById).delete(protect, deleteRawFoodAssessment);
 router.post('/:id/customer-assessment', protect, submitCustomerAssessment);
 
 module.exports = router;

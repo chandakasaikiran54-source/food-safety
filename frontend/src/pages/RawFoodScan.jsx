@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FiCamera, FiUpload, FiRefreshCw } from 'react-icons/fi';
 import api from '../utils/api';
 
-const ScanFood = () => {
+const RawFoodScan = () => {
   const [stream, setStream] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [file, setFile] = useState(null);
@@ -83,7 +83,7 @@ const ScanFood = () => {
           setError('Failed to capture image. Please try again.');
           return;
         }
-        const capturedFile = new File([blob], "camera_capture.jpg", { type: "image/jpeg" });
+        const capturedFile = new File([blob], "raw_camera_capture.jpg", { type: "image/jpeg" });
         setFile(capturedFile);
         setImagePreview(URL.createObjectURL(blob));
         stopCamera();
@@ -133,9 +133,9 @@ const ScanFood = () => {
     formData.append('image', file);
 
     try {
-      const res = await api.post('/scans/analyze', formData);
+      const res = await api.post('/raw-food/analyze', formData);
       if (res.data.success) {
-        navigate(`/result/${res.data.data._id}`);
+        navigate(`/raw-food-result/${res.data.data._id}`);
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Error analyzing image. Please try again.');
@@ -157,7 +157,7 @@ const ScanFood = () => {
 
   return (
     <div className="animate-fade-in" style={{ padding: '40px 5%', maxWidth: '800px', margin: '0 auto' }}>
-      <h2 className="text-center mb-8">Scan Your Food</h2>
+      <h2 className="text-center mb-8">Raw Food Quality Check</h2>
       
       {error && <div className="text-error mb-4 text-center glass-card" style={{ padding: '16px', borderColor: 'var(--error-color)' }}>{error}</div>}
 
@@ -167,7 +167,7 @@ const ScanFood = () => {
           <div className="text-center">
             <FiRefreshCw size={48} color="var(--primary-color)" style={{ animation: 'spin 2s linear infinite', marginBottom: '16px' }} />
             <style>{`@keyframes spin { 100% { transform: rotate(360deg); } }`}</style>
-            <h3>Analyzing your food...</h3>
+            <h3>Assessing visual quality...</h3>
             <p style={{ color: '#cbd5e1', marginTop: '8px' }}>Please wait while our AI visual assessment runs.</p>
           </div>
         ) : imagePreview ? (
@@ -218,14 +218,14 @@ const ScanFood = () => {
         ) : (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', width: '100%', maxWidth: '300px' }}>
             <button className="btn btn-primary w-full" onClick={startCamera} style={{ padding: '16px' }}>
-              <FiCamera style={{ marginRight: '8px' }} /> Open Camera
+              <FiCamera style={{ marginRight: '8px' }} /> Capture Photo
             </button>
             <div style={{ position: 'relative', textAlign: 'center' }}>
               <hr style={{ borderColor: 'var(--glass-border)' }} />
               <span style={{ position: 'absolute', top: '-10px', left: '50%', transform: 'translateX(-50%)', background: 'var(--card-bg)', padding: '0 10px', color: '#cbd5e1' }}>OR</span>
             </div>
             <label className="btn btn-secondary w-full" style={{ padding: '16px', cursor: 'pointer' }}>
-              <FiUpload style={{ marginRight: '8px' }} /> Upload Image
+              <FiUpload style={{ marginRight: '8px' }} /> Upload Photo
               <input type="file" accept="image/*" style={{ display: 'none' }} onChange={handleFileUpload} />
             </label>
           </div>
@@ -236,4 +236,4 @@ const ScanFood = () => {
   );
 };
 
-export default ScanFood;
+export default RawFoodScan;

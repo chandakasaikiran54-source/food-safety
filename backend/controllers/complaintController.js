@@ -3,7 +3,7 @@ const Complaint = require('../models/Complaint');
 // @desc    Submit a food safety complaint
 // @route   POST /api/complaints
 // @access  Private
-exports.submitComplaint = async (req, res) => {
+exports.submitComplaint = async (req, res, next) => {
     try {
         const { restaurantId, issueCategory, description } = req.body;
 
@@ -32,6 +32,6 @@ exports.submitComplaint = async (req, res) => {
 
     } catch (error) {
         console.error(error);
-        res.status(500).json({ success: false, message: 'Server Error submitting complaint.' });
+        next(error);
     }
 };

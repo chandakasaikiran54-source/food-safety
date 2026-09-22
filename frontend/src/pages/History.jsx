@@ -42,7 +42,7 @@ const History = () => {
   };
 
   const filteredScans = scans.filter(scan => {
-    const matchesSearch = scan.detectedFood.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesSearch = (scan.detectedFood?.toLowerCase() || '').includes(searchTerm.toLowerCase());
     const matchesCategory = filterCategory === 'All' || scan.category === filterCategory;
     return matchesSearch && matchesCategory;
   });
@@ -95,7 +95,7 @@ const History = () => {
                   <img src={`http://localhost:5000${scan.image}`} alt={scan.detectedFood} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
                 <div>
-                  <h4 style={{ fontSize: '1.1rem', marginBottom: '4px' }}>{scan.detectedFood}</h4>
+                  <h4 style={{ fontSize: '1.1rem', marginBottom: '4px' }}>{scan.isFood === false ? 'Invalid Image' : scan.detectedFood}</h4>
                   <p style={{ fontSize: '0.85rem', color: '#cbd5e1' }}>{new Date(scan.createdAt).toLocaleDateString()}</p>
                 </div>
               </div>

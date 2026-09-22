@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 const path = require('path');
-const { analyzeFood, getScans, getScanById, deleteScan, submitCustomerAssessment } = require('../controllers/scanController');
+const { analyzeTomato, getTomatoAssessments, getTomatoAssessmentById } = require('../controllers/tomatoController');
 const { protect } = require('../middleware/authMiddleware');
 
 const storage = multer.diskStorage({
@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
         cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
-        cb(null, `${Date.now()}-${file.originalname}`);
+        cb(null, `tomato-${Date.now()}-${file.originalname}`);
     }
 });
 
@@ -30,8 +30,12 @@ const upload = multer({
 });
 
 const uploadMiddleware = (req, res, next) => {
-    const uploadSingle = upload.single('image');
-    uploadSingle(req, res, function (err) {
+    const uploadFields = upload.fields([
+        { name: 'wholeImage', maxCount: 1 },
+        { name: 'cutImage', maxCount: 1 }
+    ]);
+    
+    uploadFields(req, res, function (err) {
         if (err instanceof multer.MulterError) {
             if (err.code === 'LIMIT_FILE_SIZE') {
                 return res.status(400).json({ success: false, message: 'Image size must be less than 10 MB.' });
@@ -44,9 +48,8 @@ const uploadMiddleware = (req, res, next) => {
     });
 };
 
-router.post('/analyze', protect, uploadMiddleware, analyzeFood);
-router.route('/').get(protect, getScans);
-router.route('/:id').get(protect, getScanById).delete(protect, deleteScan);
-router.post('/:id/customer-assessment', protect, submitCustomerAssessment);
+router.post('/analyze', protect, uploadMiddleware, analyzeTomato);
+router.route('/').get(protect, getTomatoAssessments);
+router.route('/:id').get(protect, getTomatoAssessmentById);
 
 module.exports = router;

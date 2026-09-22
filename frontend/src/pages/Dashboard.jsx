@@ -44,32 +44,22 @@ const Dashboard = () => {
         )}
       </div>
 
-      {user?.role === 'officer' ? (
-        <div className="glass-card mb-8 text-center" style={{ padding: '40px' }}>
-          <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Officer Dashboard</h3>
-          <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>Submit a new restaurant inspection report.</p>
-          <Link to="/inspect" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
-            Inspect Restaurant
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '32px' }}>
+        <div className="glass-card text-center" style={{ padding: '40px' }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Capture Picture</h3>
+          <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>Get an AI visual food safety assessment instantly.</p>
+          <Link to="/scan" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
+            <FiCamera style={{ marginRight: '8px' }} /> Scan Food
           </Link>
         </div>
-      ) : (
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginBottom: '32px' }}>
-          <div className="glass-card text-center" style={{ padding: '40px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Capture Picture</h3>
-            <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>Get an AI visual food safety assessment instantly.</p>
-            <Link to="/scan" className="btn btn-primary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
-              <FiCamera style={{ marginRight: '8px' }} /> Scan Food
-            </Link>
-          </div>
-          <div className="glass-card text-center" style={{ padding: '40px' }}>
-            <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Check Restaurant</h3>
-            <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>View public inspection records for local restaurants.</p>
-            <Link to="/restaurants/search" className="btn btn-secondary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
-              Check Restaurant
-            </Link>
-          </div>
+        <div className="glass-card text-center" style={{ padding: '40px' }}>
+          <h3 style={{ fontSize: '1.5rem', marginBottom: '16px' }}>Check Restaurant</h3>
+          <p style={{ color: '#cbd5e1', marginBottom: '24px' }}>View public inspection records for local restaurants.</p>
+          <Link to="/restaurants/search" className="btn btn-secondary" style={{ padding: '16px 32px', fontSize: '1.2rem' }}>
+            Check Restaurant
+          </Link>
         </div>
-      )}
+      </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px', marginBottom: '32px' }}>
         <div className="glass-card text-center">

@@ -41,6 +41,22 @@ const inspectionSchema = new mongoose.Schema(
         },
         nextInspectionDate: {
             type: Date
+        },
+        foodStorageCondition: {
+            type: String,
+            required: true
+        },
+        wasteManagement: {
+            type: String,
+            required: true
+        },
+        pestControl: {
+            type: String,
+            required: true
+        },
+        staffHygiene: {
+            type: String,
+            required: true
         }
     },
     {

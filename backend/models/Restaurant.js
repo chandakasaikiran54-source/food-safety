@@ -18,6 +18,15 @@ const restaurantSchema = new mongoose.Schema(
         },
         latestInspectionDate: {
             type: Date
+        },
+        latestHygieneRating: {
+            type: Number
+        },
+        latestOverallRating: {
+            type: Number
+        },
+        nextInspectionDueDate: {
+            type: Date
         }
     },
     {

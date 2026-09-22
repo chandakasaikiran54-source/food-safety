@@ -13,7 +13,11 @@ const InspectionForm = () => {
     overallRating: 5,
     remarks: '',
     date: new Date().toISOString().split('T')[0],
-    nextInspectionDate: ''
+    nextInspectionDate: '',
+    foodStorageCondition: 'Properly Stored',
+    wasteManagement: 'Adequate',
+    pestControl: 'No Infestation',
+    staffHygiene: 'Good'
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -95,6 +99,41 @@ const InspectionForm = () => {
             <select name="kitchenCleanliness" className="input-field" value={formData.kitchenCleanliness} onChange={handleChange}>
               <option value="Clean">Clean</option>
               <option value="Not Clean">Not Clean</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Food Storage Condition</label>
+            <select name="foodStorageCondition" className="input-field" value={formData.foodStorageCondition} onChange={handleChange}>
+              <option value="Properly Stored">Properly Stored</option>
+              <option value="Needs Improvement">Needs Improvement</option>
+              <option value="Improperly Stored">Improperly Stored</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Waste Management</label>
+            <select name="wasteManagement" className="input-field" value={formData.wasteManagement} onChange={handleChange}>
+              <option value="Adequate">Adequate</option>
+              <option value="Inadequate">Inadequate</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Pest Control</label>
+            <select name="pestControl" className="input-field" value={formData.pestControl} onChange={handleChange}>
+              <option value="No Infestation">No Infestation</option>
+              <option value="Signs of Pests">Signs of Pests</option>
+              <option value="Severe Infestation">Severe Infestation</option>
+            </select>
+          </div>
+
+          <div className="form-group">
+            <label>Staff Hygiene</label>
+            <select name="staffHygiene" className="input-field" value={formData.staffHygiene} onChange={handleChange}>
+              <option value="Good">Good</option>
+              <option value="Fair">Fair</option>
+              <option value="Poor">Poor</option>
             </select>
           </div>
 

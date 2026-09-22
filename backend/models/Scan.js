@@ -14,6 +14,9 @@ const scanSchema = new mongoose.Schema({
         type: Boolean,
         default: true
     },
+    status: {
+        type: String
+    },
     message: {
         type: String
     },
@@ -44,6 +47,26 @@ const scanSchema = new mongoose.Schema({
     visualHygieneRisk: {
         type: String
     },
+    visualAssessmentStatus: {
+        type: String
+    },
+    hygieneConfidence: {
+        type: Number
+    },
+    visibleIssues: {
+        type: [String],
+        default: []
+    },
+    cookingStatus: {
+        type: String
+    },
+    cookingConfidence: {
+        type: Number
+    },
+    visibleCookingIndicators: {
+        type: [String],
+        default: []
+    },
     analysisType: {
         type: String,
         default: 'RGB'
@@ -70,6 +93,48 @@ const scanSchema = new mongoose.Schema({
     },
     limitations: {
         type: String
+    },
+    mealItems: {
+        type: [mongoose.Schema.Types.Mixed],
+        default: []
+    },
+    howToEatGuide: {
+        type: [mongoose.Schema.Types.Mixed],
+        default: []
+    },
+    mealSuggestion: {
+        type: String
+    },
+    // New Tomato Fields
+    qualityScore: {
+        type: Number
+    },
+    defectScore: {
+        type: Number
+    },
+    microbialSafetyRisk: {
+        type: String
+    },
+    qualityLevel: {
+        type: String
+    },
+    reason: {
+        type: String
+    },
+    customerAssessment: {
+        quality: { type: String, default: null },
+        taste: { type: String, default: null },
+        comment: { type: String, default: null }
+    },
+    finalQualityScore: {
+        type: Number
+    },
+    assessmentDifference: {
+        type: String
+    },
+    howToEat: {
+        type: [String],
+        default: []
     }
 }, { timestamps: true });
 
