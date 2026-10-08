@@ -70,7 +70,7 @@ const MicrobialAnalysis = () => {
                     <div>
                         <h3 style={{ margin: '0 0 8px 0', color: 'var(--warning-color)' }}>MICROSCOPIC IMAGE REQUIRED</h3>
                         <p style={{ margin: 0, lineHeight: '1.5' }}>
-                            For microbial analysis, capture a clear microscopic image of the tomato sample using a microscope or compatible smartphone microscope attachment. 
+                            For microbial analysis, capture a clear microscopic image of the food sample (e.g., Biryani preparation) using a microscope or compatible smartphone microscope attachment. 
                             <strong> Ordinary smartphone RGB photographs cannot be used to detect invisible bacteria.</strong>
                         </p>
                     </div>

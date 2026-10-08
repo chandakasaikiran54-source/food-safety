@@ -1,0 +1,98 @@
+{
+  "architecture": "mobilenet_v3_small",
+  "input_resolution": [
+    224,
+    224
+  ],
+  "best_epoch": 8,
+  "best_val_f1": 0.9643280911573594,
+  "training_time_seconds": 87.14,
+  "class_mapping": {
+    "biryani": 0,
+    "not_biryani": 1
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.564,
+      "train_acc": 0.7176,
+      "val_loss": 0.4928,
+      "val_acc": 0.7207,
+      "val_precision": 0.8299,
+      "val_recall": 0.7207,
+      "val_f1": 0.7234
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.3572,
+      "train_acc": 0.8549,
+      "val_loss": 0.3991,
+      "val_acc": 0.8018,
+      "val_precision": 0.8733,
+      "val_recall": 0.8018,
+      "val_f1": 0.8057
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.2482,
+      "train_acc": 0.911,
+      "val_loss": 0.3774,
+      "val_acc": 0.7658,
+      "val_precision": 0.8595,
+      "val_recall": 0.7658,
+      "val_f1": 0.7692
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.162,
+      "train_acc": 0.9497,
+      "val_loss": 0.2666,
+      "val_acc": 0.8468,
+      "val_precision": 0.8933,
+      "val_recall": 0.8468,
+      "val_f1": 0.8503
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.1158,
+      "train_acc": 0.9613,
+      "val_loss": 0.2098,
+      "val_acc": 0.9009,
+      "val_precision": 0.9227,
+      "val_recall": 0.9009,
+      "val_f1": 0.9029
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.1359,
+      "train_acc": 0.9497,
+      "val_loss": 0.1931,
+      "val_acc": 0.9279,
+      "val_precision": 0.9402,
+      "val_recall": 0.9279,
+      "val_f1": 0.9292
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.1359,
+      "train_acc": 0.9536,
+      "val_loss": 0.1612,
+      "val_acc": 0.9459,
+      "val_precision": 0.9532,
+      "val_recall": 0.9459,
+      "val_f1": 0.9467
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.1018,
+      "train_acc": 0.9729,
+      "val_loss": 0.1519,
+      "val_acc": 0.964,
+      "val_precision": 0.9673,
+      "val_recall": 0.964,
+      "val_f1": 0.9643
+    }
+  ],
+  "device": "cpu",
+  "checkpoint_file": "biryani_classifier.pth"
+}

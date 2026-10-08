@@ -105,7 +105,7 @@ const scanSchema = new mongoose.Schema({
     mealSuggestion: {
         type: String
     },
-    // New Tomato Fields
+    // Food Quality Assessment Fields
     qualityScore: {
         type: Number
     },

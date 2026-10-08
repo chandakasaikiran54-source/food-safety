@@ -1,4 +1,4 @@
-﻿node_modules/
+node_modules/
 .env
 venv/
 __pycache__/
@@ -38,3 +38,30 @@ venv/
 *.pth
 *.pt
 *.onnx
+
+# Rice datasets and archives
+rice-classification/data/
+*.7z
+*.tar.gz
+*.zip
+
+# Biryani ML Datasets & Weights
+ml/biryani/datasets/raw/
+ml/biryani/datasets/frames/
+ml/biryani/datasets/train/
+ml/biryani/datasets/validation/
+ml/biryani/datasets/test/
+ml/biryani/models/*.pth
+# Local datasets and temporary files
+ai-service/food_dataset/
+ai-service/food_type_dataset/
+scratch/
+*.part
+ai-service/fried_rice_*.jpg
+ai-service/plain_rice_*.jpg
+ai-service/pulao_*.jpg
+
+# Biryani image datasets
+biryani/dataset/
+food-identification/biryani/dataset/
+ml/biryani/datasets/ood_test/

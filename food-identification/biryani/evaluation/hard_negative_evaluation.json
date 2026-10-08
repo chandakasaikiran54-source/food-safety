@@ -1,0 +1,452 @@
+{
+  "quality_gate_tests": [
+    {
+      "case": "Severely Blurry Image",
+      "expected_quality_pass": false,
+      "actual_result": {
+        "success": false,
+        "food": "unknown",
+        "is_biryani": false,
+        "confidence": 0.0,
+        "quality_passed": false,
+        "message": "Image is too blurry. Please upload a sharper image.",
+        "quality_metrics": {
+          "blur_variance": 1.4266999100000002
+        }
+      }
+    },
+    {
+      "case": "Severely Dark Image",
+      "expected_quality_pass": false,
+      "actual_result": {
+        "success": false,
+        "food": "unknown",
+        "is_biryani": false,
+        "confidence": 0.0,
+        "quality_passed": false,
+        "message": "Image is too blurry. Please upload a sharper image.",
+        "quality_metrics": {
+          "blur_variance": 0.0
+        }
+      }
+    }
+  ],
+  "hard_negatives": [
+    {
+      "image": "not_biryani_116.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_311.jpg",
+      "prediction": "biryani",
+      "is_biryani": true,
+      "confidence": 0.65
+    },
+    {
+      "image": "not_biryani_373.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_378.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_379.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_532.jpg",
+      "prediction": "unknown",
+      "is_biryani": false,
+      "confidence": 0.56
+    },
+    {
+      "image": "not_biryani_714.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_718.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "not_biryani_753.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_771.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_811.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "not_biryani_test_indian_foods_115.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "not_biryani_test_indian_foods_142.jpg",
+      "prediction": "biryani",
+      "is_biryani": true,
+      "confidence": 0.91
+    },
+    {
+      "image": "not_biryani_test_indian_foods_283.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_test_indian_foods_342.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_test_indian_foods_378.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_test_indian_foods_407.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.94
+    },
+    {
+      "image": "not_biryani_test_indian_foods_451.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_test_indian_foods_469.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_test_indian_foods_582.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.87
+    },
+    {
+      "image": "not_biryani_test_indian_foods_591.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.87
+    },
+    {
+      "image": "not_biryani_test_indian_foods_75.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_test_indian_foods_816.jpg",
+      "prediction": "biryani",
+      "is_biryani": true,
+      "confidence": 0.7
+    },
+    {
+      "image": "not_biryani_test_indian_foods_867.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_test_indian_foods_949.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1024.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.95
+    },
+    {
+      "image": "not_biryani_train_part1_1064.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_1070.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1072.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_1094.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_1102.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_1110.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "not_biryani_train_part1_1117.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "not_biryani_train_part1_1122.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1166.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1173.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.95
+    },
+    {
+      "image": "not_biryani_train_part1_1218.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.95
+    },
+    {
+      "image": "not_biryani_train_part1_1293.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1347.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_train_part1_1423.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.85
+    },
+    {
+      "image": "not_biryani_train_part1_1517.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_1562.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1624.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1668.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_1732.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_train_part1_1855.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_train_part1_202.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_241.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.96
+    },
+    {
+      "image": "not_biryani_train_part1_260.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.96
+    },
+    {
+      "image": "not_biryani_train_part1_286.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_370.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "not_biryani_train_part1_403.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.96
+    },
+    {
+      "image": "not_biryani_train_part1_416.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_706.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.87
+    },
+    {
+      "image": "not_biryani_train_part1_712.jpg",
+      "prediction": "biryani",
+      "is_biryani": true,
+      "confidence": 0.89
+    },
+    {
+      "image": "not_biryani_train_part1_816.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.93
+    },
+    {
+      "image": "not_biryani_train_part1_878.jpg",
+      "prediction": "biryani",
+      "is_biryani": true,
+      "confidence": 0.89
+    },
+    {
+      "image": "not_biryani_train_part1_889.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 1.0
+    },
+    {
+      "image": "not_biryani_train_part1_945.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.95
+    },
+    {
+      "image": "not_biryani_train_part1_949.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.99
+    },
+    {
+      "image": "not_biryani_train_part1_985.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.8
+    },
+    {
+      "image": "not_biryani_train_part1_988.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "test_hard_fried_rice_1.jpg",
+      "prediction": "unknown",
+      "is_biryani": false,
+      "confidence": 0.63
+    },
+    {
+      "image": "test_hard_fried_rice_14.jpg",
+      "prediction": "unknown",
+      "is_biryani": false,
+      "confidence": 0.57
+    },
+    {
+      "image": "test_hard_fried_rice_2.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.97
+    },
+    {
+      "image": "test_hard_fried_rice_3.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.79
+    },
+    {
+      "image": "test_hard_fried_rice_4.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.98
+    },
+    {
+      "image": "test_hard_fried_rice_5.jpg",
+      "prediction": "other",
+      "is_biryani": false,
+      "confidence": 0.96
+    }
+  ],
+  "summary": {
+    "total_negative_images": 68,
+    "true_negatives": 60,
+    "uncertain": 3,
+    "false_positives": 5,
+    "false_positive_rate": 0.0735,
+    "rejection_rate": 0.9265
+  }
+}

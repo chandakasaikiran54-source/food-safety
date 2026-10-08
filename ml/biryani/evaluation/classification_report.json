@@ -1,0 +1,292 @@
+{
+  "evaluation_protocol": "Two-Stage Isolated Evaluation (No Metric Merging)",
+  "stage_1_video_frame_test": {
+    "stage_name": "Stage 1: Video-frame Test Set",
+    "total_samples": 50,
+    "accuracy": 0.24,
+    "weighted_precision": 0.1507,
+    "weighted_recall": 0.24,
+    "weighted_f1": 0.1678,
+    "macro_precision": 0.151,
+    "macro_recall": 0.2333,
+    "macro_f1": 0.166,
+    "confusion_matrix": [
+      [
+        1,
+        0,
+        0,
+        2,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2,
+        0,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        3,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        4,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "class_names": [
+      "ambur",
+      "awadhi",
+      "bombay",
+      "dindigul",
+      "donne",
+      "hyderabadi",
+      "kashmiri",
+      "kolkata",
+      "malabar",
+      "mughlai",
+      "sindhi",
+      "thalassery"
+    ],
+    "detailed_classification_report": {
+      "ambur": {
+        "precision": 0.25,
+        "recall": 0.25,
+        "f1-score": 0.25,
+        "support": 4.0
+      },
+      "awadhi": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "bombay": {
+        "precision": 0.4,
+        "recall": 0.5,
+        "f1-score": 0.4444444444444444,
+        "support": 4.0
+      },
+      "dindigul": {
+        "precision": 0.15384615384615385,
+        "recall": 0.5,
+        "f1-score": 0.23529411764705882,
+        "support": 4.0
+      },
+      "donne": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "hyderabadi": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "kashmiri": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "kolkata": {
+        "precision": 0.5,
+        "recall": 0.25,
+        "f1-score": 0.3333333333333333,
+        "support": 4.0
+      },
+      "malabar": {
+        "precision": 0.2222222222222222,
+        "recall": 0.5,
+        "f1-score": 0.3076923076923077,
+        "support": 4.0
+      },
+      "mughlai": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 5.0
+      },
+      "sindhi": {
+        "precision": 0.2857142857142857,
+        "recall": 0.8,
+        "f1-score": 0.42105263157894735,
+        "support": 5.0
+      },
+      "thalassery": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1-score": 0.0,
+        "support": 4.0
+      },
+      "accuracy": 0.24,
+      "macro avg": {
+        "precision": 0.15098188848188845,
+        "recall": 0.2333333333333333,
+        "f1-score": 0.1659847362246743,
+        "support": 50.0
+      },
+      "weighted avg": {
+        "precision": 0.15065689865689866,
+        "recall": 0.24,
+        "f1-score": 0.1677663994072663,
+        "support": 50.0
+      }
+    }
+  },
+  "stage_2_real_smartphone_test": {
+    "status": "pending_smartphone_population"
+  },
+  "domain_gap_analysis": {
+    "status": "awaiting_dual_eval",
+    "analysis": "Evaluated independently as mandated by Phase 8 and Phase 17."
+  }
+}

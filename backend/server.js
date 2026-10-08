@@ -22,8 +22,10 @@ app.use('/api/restaurants', require('./routes/restaurantRoutes'));
 app.use('/api/officers', require('./routes/officerRoutes'));
 app.use('/api/complaints', require('./routes/complaintRoutes'));
 app.use('/api/raw-food', require('./routes/rawFoodRoutes'));
-app.use('/api/tomato', require('./routes/tomatoRoutes'));
 app.use('/api/microbial', require('./routes/microbialRoutes'));
+app.use('/api/food-identification', require('./routes/foodIdentificationRoutes'));
+app.use('/api/rice', require('./routes/riceRoutes'));
+app.use('/api/biryani', require('./routes/biryaniRoutes'));
 
 // Error Handler
 app.use(errorHandler);

@@ -19,11 +19,11 @@ import OfficerLogin from './pages/OfficerLogin';
 import InspectorDashboard from './pages/InspectorDashboard';
 import RawFoodScan from './pages/RawFoodScan';
 import RawFoodResult from './pages/RawFoodResult';
-import TomatoAnalysis from './pages/TomatoAnalysis';
-import TomatoResult from './pages/TomatoResult';
 import MicrobialAnalysis from './pages/MicrobialAnalysis';
 import MicrobialResult from './pages/MicrobialResult';
 import MicrobialDashboard from './pages/MicrobialDashboard';
+import FoodIdentification from './pages/FoodIdentification';
+import RiceIntelligence from './pages/RiceIntelligence';
 
 const ProtectedRoute = ({ children, allowedRoles }) => {
   const { user, loading } = useContext(AuthContext);
@@ -54,8 +54,8 @@ const AppContent = () => {
             <Route path="/result/:id" element={<ProtectedRoute><Result /></ProtectedRoute>} />
             <Route path="/raw-food-scan" element={<ProtectedRoute><RawFoodScan /></ProtectedRoute>} />
             <Route path="/raw-food-result/:id" element={<ProtectedRoute><RawFoodResult /></ProtectedRoute>} />
-            <Route path="/tomato-analysis" element={<ProtectedRoute><TomatoAnalysis /></ProtectedRoute>} />
-            <Route path="/tomato-result/:id" element={<ProtectedRoute><TomatoResult /></ProtectedRoute>} />
+            <Route path="/food-identification" element={<ProtectedRoute><FoodIdentification /></ProtectedRoute>} />
+            <Route path="/rice-intelligence" element={<ProtectedRoute><RiceIntelligence /></ProtectedRoute>} />
             <Route path="/microbial-analysis" element={<ProtectedRoute><MicrobialAnalysis /></ProtectedRoute>} />
             <Route path="/microbial-result/:id" element={<ProtectedRoute><MicrobialResult /></ProtectedRoute>} />
             <Route path="/admin/microbial-dashboard" element={<ProtectedRoute allowedRoles={['officer', 'admin']}><MicrobialDashboard /></ProtectedRoute>} />

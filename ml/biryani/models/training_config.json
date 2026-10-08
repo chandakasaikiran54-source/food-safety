@@ -1,0 +1,14 @@
+{
+  "architecture": "mobilenet_v3_large",
+  "epochs": 12,
+  "batch_size": 16,
+  "learning_rate": 0.0003,
+  "optimizer": "AdamW",
+  "scheduler": "CosineAnnealingLR",
+  "training_time_seconds": 34.01,
+  "device": "cpu",
+  "cuda_used": false,
+  "best_epoch": 3,
+  "best_val_accuracy": 0.2203,
+  "model_size_mb": 12.38
+}

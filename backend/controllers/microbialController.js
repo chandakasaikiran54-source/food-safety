@@ -39,7 +39,7 @@ exports.analyzeMicrobial = async (req, res, next) => {
         const assessment = await MicrobialAssessment.create({
             userId: req.user._id,
             microscopicImage: imagePath,
-            foodType: 'Tomato', // Currently default
+            foodType: 'Biryani', // Food focus
             imageQuality: aiResult.image_quality || 'insufficient',
             bacterialResult: aiResult.result || 'inconclusive',
             confidence: aiResult.confidence || 0.0,

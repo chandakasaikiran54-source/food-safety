@@ -7,3 +7,5 @@ torch
 torchvision
 transformers
 huggingface-hub
+tensorflow
+tflite-runtime

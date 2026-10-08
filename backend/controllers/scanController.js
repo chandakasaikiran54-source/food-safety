@@ -129,9 +129,9 @@ exports.analyzeFood = async (req, res, next) => {
             scanData.detectedFood = data.foodName || 'Unknown';
             scanData.confidence = data.foodConfidence || 0.0;
             
-            // New Tomato Fields
-            scanData.qualityScore = data.qualityScore || 0;
-            scanData.defectScore = data.defectScore || 0;
+            // Visual Quality Fields
+            scanData.qualityScore = data.qualityScore !== undefined ? data.qualityScore : null;
+            scanData.defectScore = data.defectScore !== undefined ? data.defectScore : null;
             scanData.qualityLevel = data.qualityLevel || 'UNKNOWN';
             scanData.reason = data.reason || '';
             scanData.visualAssessmentStatus = data.visualAssessmentStatus || 'INSUFFICIENT EVIDENCE';
@@ -211,29 +211,33 @@ exports.submitCustomerAssessment = async (req, res, next) => {
 
         scan.customerAssessment = { quality, taste, comment };
 
-        // Final Score Formula: (Visual Quality × 0.40) + ((100 - Visible Defect Score) × 0.30) + (Customer Score × 0.30)
-        // Note: We use 100 - defectScore because defectScore is a penalty value (lower is better, higher is worse).
-        const aiVisualScore = scan.qualityScore || 0;
-        const defectScoreValue = scan.defectScore || 0;
-        const invertedDefectScore = 100 - defectScoreValue;
-        
-        const finalQualityScore = (aiVisualScore * 0.40) + (invertedDefectScore * 0.30) + (customerScore * 0.30);
-        
-        scan.finalQualityScore = finalQualityScore;
-
-        // Disagreement Logic
-        const diff = Math.abs(aiVisualScore - customerScore);
+        let finalQualityScore = null;
         let explanation = '';
-        if (diff > 20) {
-            if (aiVisualScore > customerScore) {
-                explanation = "Customer and visual assessments differ significantly. The tomato appears visually healthy, but the customer reported poor quality. Visual analysis cannot evaluate taste, smell, internal texture, or other non-visible factors.";
+        
+        if (scan.qualityScore != null && scan.defectScore != null) {
+            const aiVisualScore = scan.qualityScore;
+            const defectScoreValue = scan.defectScore;
+            const invertedDefectScore = 100 - defectScoreValue;
+            
+            finalQualityScore = (aiVisualScore * 0.40) + (invertedDefectScore * 0.30) + (customerScore * 0.30);
+            
+            // Disagreement Logic
+            const diff = Math.abs(aiVisualScore - customerScore);
+            if (diff > 20) {
+                if (aiVisualScore > customerScore) {
+                    explanation = "Customer and visual assessments differ significantly. The food appears visually appetizing, but the customer reported poor quality. Visual analysis cannot evaluate taste, smell, internal texture, or other non-visible factors.";
+                } else {
+                    explanation = "Customer and visual assessments differ significantly. The AI detected visual defects, but the customer reported good quality.";
+                }
             } else {
-                explanation = "Customer and visual assessments differ significantly. The AI detected visual defects, but the customer reported good quality.";
+                explanation = "Customer and visual assessments are generally in agreement.";
             }
         } else {
-            explanation = "Customer and visual assessments are generally in agreement.";
+            // Categorical assessment fallback
+            explanation = "Categorical AI assessment complete. Numerical score is not applicable.";
         }
         
+        scan.finalQualityScore = finalQualityScore;
         scan.assessmentDifference = explanation;
 
         await scan.save();

@@ -23,7 +23,7 @@ def is_food_class(class_name):
         'burger', 'sandwich', 'hotdog', 'soup', 'salad', 'pasta', 'noodle', 'rice', 'egg', 'cheese', 'ice cream',
         'chocolate', 'candy', 'cookie', 'coffee', 'tea', 'juice', 'beer', 'wine', 'water', 'milk', 'apple',
         'banana', 'orange', 'lemon', 'grape', 'strawberry', 'melon', 'peach', 'cherry', 'pineapple', 'mango',
-        'pomegranate', 'coconut', 'broccoli', 'carrot', 'potato', 'tomato', 'onion', 'garlic', 'pepper', 'corn',
+        'pomegranate', 'coconut', 'broccoli', 'carrot', 'potato', 'biryani', 'onion', 'garlic', 'pepper', 'corn',
         'mushroom', 'cucumber', 'cabbage', 'lettuce', 'spinach', 'celery', 'beef', 'pork', 'chicken', 'lamb',
         'turkey', 'duck', 'sausage', 'bacon', 'ham', 'shrimp', 'crab', 'lobster', 'clam', 'oyster', 'squid',
         'octopus', 'salmon', 'tuna', 'trout', 'bass', 'flounder', 'mackerel', 'halibut', 'snapper', 'cod',

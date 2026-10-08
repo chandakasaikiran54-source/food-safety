@@ -71,14 +71,16 @@ const Result = () => {
   return (
     <div className="animate-fade-in" style={{ padding: '40px 5%', maxWidth: '900px', margin: '0 auto' }}>
       
-      {/* ⚠️ FOOD SAFETY WARNING */}
+      {/* VISUAL HYGIENE VERDICT */}
       {result.isFood !== false && (
-        <div style={{ marginBottom: '24px', padding: '16px', background: 'rgba(239, 68, 68, 0.15)', borderLeft: '6px solid var(--error-color)', borderRadius: '0 8px 8px 0', display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
-          <FiAlertTriangle size={32} color="var(--error-color)" style={{ flexShrink: 0, marginTop: '4px' }} />
+        <div style={{ marginBottom: '24px', padding: '16px', background: result.defectScore > 0 || result.visualAssessmentStatus === 'POOR' || result.visualAssessmentStatus === 'VISIBLY SPOILED' ? 'rgba(239, 68, 68, 0.15)' : 'rgba(16, 185, 129, 0.15)', borderLeft: `6px solid ${result.defectScore > 0 || result.visualAssessmentStatus === 'POOR' || result.visualAssessmentStatus === 'VISIBLY SPOILED' ? 'var(--error-color)' : '#10b981'}`, borderRadius: '0 8px 8px 0', display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
+          {result.defectScore > 0 || result.visualAssessmentStatus === 'POOR' || result.visualAssessmentStatus === 'VISIBLY SPOILED' ? <FiAlertTriangle size={32} color="var(--error-color)" style={{ flexShrink: 0, marginTop: '4px' }} /> : <FiCheckCircle size={32} color="#10b981" style={{ flexShrink: 0, marginTop: '4px' }} />}
           <div>
-            <h3 style={{ color: 'var(--error-color)', margin: '0 0 8px 0', fontSize: '1.2rem' }}>FOOD SAFETY WARNING</h3>
+            <h3 style={{ color: result.defectScore > 0 || result.visualAssessmentStatus === 'POOR' || result.visualAssessmentStatus === 'VISIBLY SPOILED' ? 'var(--error-color)' : '#10b981', margin: '0 0 8px 0', fontSize: '1.2rem' }}>
+              {result.defectScore > 0 || result.visualAssessmentStatus === 'POOR' || result.visualAssessmentStatus === 'VISIBLY SPOILED' ? "⚠️ High Risk — Visible spoilage detected, do not consume" : "✅ No visible spoilage/contamination detected"}
+            </h3>
             <p style={{ margin: 0, color: '#f8fafc', lineHeight: '1.5' }}>
-              This system provides a <strong>VISUAL QUALITY ANALYSIS</strong> only. A good appearance does <strong>NOT</strong> guarantee that the food is microbiologically safe. The camera cannot detect bacteria, viruses, pesticides, or toxins.
+              Note: this checks visible spoilage only, not invisible bacteria — always follow safe food handling.
             </p>
           </div>
         </div>
@@ -105,7 +107,7 @@ const Result = () => {
                  <FiAlertTriangle /> Food Not Detected
                </h3>
                <p style={{ fontSize: '1.1rem', lineHeight: '1.5', color: '#cbd5e1' }}>
-                 {result.message || "Tomato not detected. Please upload a clear tomato image."}
+                 {result.message || "Food item not recognized. Please upload a clear food image (e.g., Biryani)."}
                </p>
              </div>
           ) : (
@@ -124,10 +126,10 @@ const Result = () => {
                   <div style={{ textAlign: 'right' }}>
                     <span style={{ color: '#cbd5e1', display: 'block', marginBottom: '4px' }}>Visual Score:</span>
                     <div style={{ display: 'flex', alignItems: 'baseline', gap: '4px', justifyContent: 'flex-end' }}>
-                      <span style={{ fontSize: '2.5rem', fontWeight: 'bold', color: getVisualScoreColor(result.qualityScore || 0), lineHeight: '1' }}>
-                        {result.qualityScore || 0}
+                      <span style={{ fontSize: result.qualityScore != null ? '2.5rem' : '1.2rem', fontWeight: 'bold', color: result.qualityScore != null ? getVisualScoreColor(result.qualityScore) : '#94a3b8', lineHeight: '1' }}>
+                        {result.qualityScore != null ? result.qualityScore : 'Unavailable'}
                       </span>
-                      <span style={{ color: '#94a3b8' }}>/100</span>
+                      {result.qualityScore != null && <span style={{ color: '#94a3b8' }}>/100</span>}
                     </div>
                   </div>
                 </div>
@@ -137,7 +139,7 @@ const Result = () => {
                   <span style={{ 
                     fontWeight: 'bold', 
                     fontSize: '1.1rem',
-                    color: getVisualScoreColor(result.qualityScore || 0)
+                    color: result.qualityScore != null ? getVisualScoreColor(result.qualityScore) : '#38bdf8'
                   }}>
                     {result.visualAssessmentStatus || 'INSUFFICIENT EVIDENCE'}
                   </span>
@@ -180,30 +182,7 @@ const Result = () => {
         {result.isFood !== false && (
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             
-            {/* MICROBIAL CONTAMINATION RISK SECTION */}
-            <div className="glass-card" style={{ borderLeft: `4px solid ${getMicrobialRiskColor(result.microbialSafetyRisk)}`, background: 'rgba(0,0,0,0.3)' }}>
-              <h3 style={{ marginBottom: '16px', borderBottom: '1px solid var(--glass-border)', paddingBottom: '8px', color: '#e2e8f0', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                🦠 MICROBIAL SAFETY RISK <span style={{ fontSize: '0.8rem', padding: '2px 8px', background: '#334155', borderRadius: '12px', marginLeft: 'auto' }}>ESTIMATED</span>
-              </h3>
-              
-              <div style={{ marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <FiActivity size={28} color={getMicrobialRiskColor(result.microbialSafetyRisk)} />
-                <span style={{ 
-                  fontWeight: 'bold', 
-                  fontSize: '1.3rem',
-                  color: getMicrobialRiskColor(result.microbialSafetyRisk)
-                }}>
-                  {result.microbialSafetyRisk || 'Unknown / Cannot Determine'}
-                </span>
-              </div>
-              
-              {result.microbialSafetyRisk?.includes('Unknown') && (
-                <p style={{ color: '#cbd5e1', fontSize: '0.9rem', margin: 0, fontStyle: 'italic', background: 'rgba(255,255,255,0.05)', padding: '12px', borderRadius: '8px' }}>
-                  Microbial contamination cannot be determined from an ordinary image. While the food appears visually fine, invisible pathogens could still be present.
-                </p>
-              )}
-            </div>
-            
+            {/* MICROBIAL CONTAMINATION RISK SECTION REMOVED */}
             {/* FUTURE TECHNOLOGY SECTION */}
             <div className="glass-card" style={{ borderLeft: '4px solid #8b5cf6', background: 'rgba(139, 92, 246, 0.05)' }}>
               <h3 style={{ marginBottom: '12px', color: '#8b5cf6', fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -231,7 +210,7 @@ const Result = () => {
                 Customer Assessment
               </h3>
               
-              {!result.finalQualityScore ? (
+              {!result.customerAssessment?.quality ? (
                 <>
                   <div style={{ marginBottom: '16px' }}>
                     <label style={{ display: 'block', marginBottom: '8px', color: '#cbd5e1' }}>Overall Experience / Quality:</label>
@@ -326,13 +305,17 @@ const Result = () => {
                 <span style={{ color: '#94a3b8', display: 'block', marginBottom: '8px', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px' }}>
                   NOT A MICROBIOLOGICAL SAFETY SCORE
                 </span>
-                {result.finalQualityScore ? (
+                {result.finalQualityScore != null ? (
                   <span style={{ fontSize: '4rem', fontWeight: 'bold', color: getVisualScoreColor(result.finalQualityScore), textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
                     {result.finalQualityScore.toFixed(1)} <span style={{ fontSize: '1.5rem', color: '#64748b' }}>/100</span>
                   </span>
+                ) : (result.customerAssessment?.quality ? (
+                  <span style={{ fontSize: '3rem', fontWeight: 'bold', color: result.qualityLevel === 'GOOD' ? 'var(--score-excellent)' : (result.qualityLevel === 'POOR' ? 'var(--score-high-concern)' : 'var(--score-good)') }}>
+                    {result.qualityLevel || 'EVIDENCE-BASED CATEGORY'}
+                  </span>
                 ) : (
                   <span style={{ color: '#fbbf24', fontStyle: 'italic' }}>Waiting for customer assessment</span>
-                )}
+                ))}
               </div>
               
               {result.assessmentDifference && (
@@ -373,7 +356,7 @@ const Result = () => {
       </div>
 
       <div style={{ display: 'flex', justifyContent: 'center', gap: '16px', marginTop: '40px', flexWrap: 'wrap' }}>
-        <Link to="/scan" className="btn btn-primary">Scan Another Tomato</Link>
+        <Link to="/scan" className="btn btn-primary">Scan Another Dish</Link>
         <Link to="/history" className="btn btn-secondary">View Scan History</Link>
         <Link to="/dashboard" className="btn btn-secondary" style={{ border: 'none', textDecoration: 'underline' }}>Back to Dashboard</Link>
       </div>

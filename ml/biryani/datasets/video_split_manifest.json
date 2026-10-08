@@ -1,0 +1,835 @@
+{
+  "status": "ZERO_LEAKAGE_VERIFIED",
+  "total_categories": 12,
+  "split_counts_per_category": {
+    "train_videos": 7,
+    "validation_videos": 1,
+    "test_videos": 2
+  },
+  "splits": {
+    "train": {
+      "ambur_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "bombay_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7",
+        "video10"
+      ],
+      "dindigul_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "donne_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "hyderabadi_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "kashmiri_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "kolkata_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "lucknow_awadhi_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "malabar_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "mughlai_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "sindhi_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ],
+      "thalassery_biryani": [
+        "video1",
+        "video2",
+        "video3",
+        "video4",
+        "video5",
+        "video6",
+        "video7"
+      ]
+    },
+    "validation": {
+      "ambur_biryani": [
+        "video8"
+      ],
+      "bombay_biryani": [
+        "video8"
+      ],
+      "dindigul_biryani": [
+        "video8"
+      ],
+      "donne_biryani": [
+        "video8"
+      ],
+      "hyderabadi_biryani": [
+        "video8"
+      ],
+      "kashmiri_biryani": [
+        "video8"
+      ],
+      "kolkata_biryani": [
+        "video8"
+      ],
+      "lucknow_awadhi_biryani": [
+        "video8"
+      ],
+      "malabar_biryani": [
+        "video8"
+      ],
+      "mughlai_biryani": [
+        "video8"
+      ],
+      "sindhi_biryani": [
+        "video8"
+      ],
+      "thalassery_biryani": [
+        "video8"
+      ]
+    },
+    "test": {
+      "ambur_biryani": [
+        "video9",
+        "video10"
+      ],
+      "bombay_biryani": [
+        "video9"
+      ],
+      "dindigul_biryani": [
+        "video9",
+        "video10"
+      ],
+      "donne_biryani": [
+        "video9",
+        "video10"
+      ],
+      "hyderabadi_biryani": [
+        "video9",
+        "video10"
+      ],
+      "kashmiri_biryani": [
+        "video9",
+        "video10"
+      ],
+      "kolkata_biryani": [
+        "video9",
+        "video10"
+      ],
+      "lucknow_awadhi_biryani": [
+        "video9",
+        "video10"
+      ],
+      "malabar_biryani": [
+        "video9",
+        "video10"
+      ],
+      "mughlai_biryani": [
+        "video9",
+        "video10"
+      ],
+      "sindhi_biryani": [
+        "video9",
+        "video10"
+      ],
+      "thalassery_biryani": [
+        "video9",
+        "video10"
+      ]
+    }
+  },
+  "video_manifest": {
+    "ambur_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=bQ_OUze0bhU",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=ajbVOfXT8ME",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=rmWcuTdVPvc",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=G1-I_qvKRbY",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=MPPyNaxS_BM",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=TphED4WaZbo",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=aF-NYduPBaA",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=ktwqpScthdA",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=DorxTA0igIE",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=VlJgJN-ihyA",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "bombay_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=DBpxjLbY9Sg",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=_v2aMYU16W4",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=dIieqJP1mac",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=yxlJEImuyYU",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=-yZFPs8jqFw",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=ntHJLC1rAz0",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=QTMffxDiTeM",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=L0ummwp0pJA",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=kpJaaEvPR_U",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=DBpxjLbY9Sg",
+        "duplicate_of_assigned_url": true
+      }
+    },
+    "dindigul_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=5Zra4nFepRg",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=gAz0tchMS6M",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=1GB9IMAaMFA",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=eWXHPRvfZTY",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=iARLgsvABRY",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=HYZz6K78iG4",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=AgbGZg5nVr4",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=pRRioas9ZX4",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=d3PIOllHsYE",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=hgI4wV_WoVs",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "donne_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=DMXlJY-3uA4",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=FB8jiqqOK68",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=YdpAYLIjz_4",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=-DoPE08CvUI",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=p2esRosqD8U",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=9o0lljXKAPs",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=ErDQKcqC1dQ",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=iBIu31ZJ4jU",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=l0n4eHBzPbk",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=Gj6gxysrkh8",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "hyderabadi_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=uXf3xXeu1x4",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=nf9tq7cNkTQ",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=zkAxXHSHpv0",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=0DE-2vniskw",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=BIXMwLFCboA",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=FWKNGUeIX7w",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=jCABb8HsrWQ",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=v-dgOnlnR40",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=yAasjcAEOvo",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=E_gWBBjYkjE",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "kashmiri_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=oZW6IaRTcX8",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=9NDYjA2G0yo",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=8xIteGN3FfU",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=PX2oRDCLF80",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=S0Ow7Lmu7Pg",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=1xOXRMUjGjQ",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=iZa2pttrdLc",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=cxWnqns977g",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=5N2mb1xyUCI",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=1yHrE_V5gpA",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "kolkata_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=cewMQvUAESI",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=9EgcWzkt5Zk",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=XplW4n75UrI",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=jtXPYRmiBbI",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=4tDu8V26i9g",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=YBd1TcCfWBs",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=1PjtS2fr-xI",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=8P8vdhEp8OA",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=2ahDWniP4YY",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=70RNVsBEr44",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "lucknow_awadhi_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=8BT91Oxp_C0",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=mtI-2Z2ZC-I",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=dbQnkRRqp5E",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=ZKjAIyb6UUw",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=B16qGzPTgPM",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=McP-YCUbJl4",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=6iuuetZ9YaE",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=oVEEZ-cBxeI",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=kNnn3XqLWFA",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=SXI-U24Bs4o",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "malabar_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=_Jk-YuzqnaY",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=zTR1bL2wv1o",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=emZ4Rn9kgwY",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=4THANac_Rhs",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=yV3JAFDqR0c",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=PEDwxukasLc",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=FU5VMxP1o3w",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=oyVBoqbAdYI",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=3afTviMrHN0",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=hEF3YfPmYcM",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "mughlai_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=QWjgN52whDQ",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=x63VozM-6SY",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=Nrh6A4LD4Bw",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=-XlNmh4x4tg",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=PwVbvj8tlUE",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=JTIQSyvYEfg",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=YGuVtWRO_14",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=GZdZEExzKu8",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=i2WGTjEaRbg",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=80lt5q4HTuE",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "sindhi_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=exu4IuxgNwU",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=otNb4UI60dU",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=iQ5mDJjaP2k",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=SEGSmBn7w6U",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=19e0rLz4MwA",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=QMovteZpDKI",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=mivJuWYfcYY",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=vRXY8xdTBP0",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=h9mugWdOoo4",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=GezHL0ti26M",
+        "duplicate_of_assigned_url": false
+      }
+    },
+    "thalassery_biryani": {
+      "video1": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=fw_z1nxkWGI",
+        "duplicate_of_assigned_url": false
+      },
+      "video2": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=OSDIUUjnFdk",
+        "duplicate_of_assigned_url": false
+      },
+      "video3": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=VPKDh8jdLQ4",
+        "duplicate_of_assigned_url": false
+      },
+      "video4": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=48uQBMbvTXg",
+        "duplicate_of_assigned_url": false
+      },
+      "video5": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=DZbWuOUyQ5k",
+        "duplicate_of_assigned_url": false
+      },
+      "video6": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=CX5t8RX8ct0",
+        "duplicate_of_assigned_url": false
+      },
+      "video7": {
+        "split": "train",
+        "url": "https://www.youtube.com/watch?v=o-J-h8jsFU8",
+        "duplicate_of_assigned_url": false
+      },
+      "video8": {
+        "split": "validation",
+        "url": "https://www.youtube.com/watch?v=F4rTfLw3t58",
+        "duplicate_of_assigned_url": false
+      },
+      "video9": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=agmuPe_Osbg",
+        "duplicate_of_assigned_url": false
+      },
+      "video10": {
+        "split": "test",
+        "url": "https://www.youtube.com/watch?v=bk_QzacJM68",
+        "duplicate_of_assigned_url": false
+      }
+    }
+  }
+}

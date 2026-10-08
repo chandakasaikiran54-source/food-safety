@@ -8,7 +8,7 @@ const microbialAssessmentSchema = new mongoose.Schema({
     },
     foodName: {
         type: String,
-        default: 'Tomato'
+        default: 'Biryani'
     },
     microscopicImage: {
         type: String,
